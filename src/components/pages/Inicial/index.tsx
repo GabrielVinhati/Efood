@@ -1,10 +1,10 @@
 import Header from '../../Header'
-import ListProduct from '../../ListProduct'
+import ListRestaurante from '../../ListRestaurante'
 
 const Inicial = () => (
   <>
     <Header />
-    <ListProduct />
+    <ListRestaurante />
   </>
 )
 

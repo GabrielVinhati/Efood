@@ -1,6 +1,12 @@
 import styled from 'styled-components'
 import { cores } from '../../styled'
 
+export const ContentContainer = styled.div`
+  max-width: 1024px;
+  width: 100%;
+  margin: 0 auto;
+`
+
 export const Head = styled.div`
   width: 100%;
   height: 186px;
@@ -16,6 +22,9 @@ export const Text = styled.p`
 `
 
 export const ImgModelo = styled.div`
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
   padding-top: 25px;
   width: 100%;
   height: 280px;
@@ -23,7 +32,6 @@ export const ImgModelo = styled.div`
 `
 
 export const Description = styled.p`
-  margin-left: 240px;
   margin-top: 24px;
   font-size: 32px;
   margin-top: 24px;
@@ -31,7 +39,6 @@ export const Description = styled.p`
 `
 
 export const Title = styled.p`
-  margin-left: 240px;
   margin-top: 130px;
   margin-bottom: 32px;
   font-size: 32px;

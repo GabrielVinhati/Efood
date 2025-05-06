@@ -1,8 +1,15 @@
 import Logo from '../../assets/images/logo.png'
 import Fundo from '../../assets/images/fundo.png'
 import Apresentacao from '../../assets/images/imgDeFundo.png'
-import { Description, Head, ImgModelo, Text, Title } from './styles'
-import { Container } from '../ListProduct/styles'
+import {
+  ContentContainer,
+  Description,
+  Head,
+  ImgModelo,
+  Text,
+  Title
+} from './styles'
+import { Container } from '../ListRestaurante/styles'
 
 const Banner = () => (
   <>
@@ -17,10 +24,10 @@ const Banner = () => (
     </div>
     <div>
       <ImgModelo style={{ backgroundImage: `url(${Apresentacao})` }}>
-        <>
+        <ContentContainer>
           <Description>Italiana</Description>
           <Title>La Dolce Vita Trattoria</Title>
-        </>
+        </ContentContainer>
       </ImgModelo>
     </div>
   </>

@@ -1,10 +1,10 @@
 import Banner from '../../HeadCat'
-import ListItaly from '../../ListItaly'
+import Cardapio from '../../Cardapio'
 
 const Categories = () => (
   <>
     <Banner />
-    <ListItaly />
+    <Cardapio />
   </>
 )
 
