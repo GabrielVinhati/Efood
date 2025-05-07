@@ -2,7 +2,9 @@ import { createGlobalStyle } from 'styled-components'
 
 export const cores = {
   branca: '#fff',
-  rosa: '#E66767'
+  rosa: '#E66767',
+  offWhite: '#ffebd9',
+  preto: '#000'
 }
 
 export const GlobalCss = createGlobalStyle`
@@ -14,7 +16,14 @@ export const GlobalCss = createGlobalStyle`
   }
 
   body {
-    background-color: ${cores.branca}
+    background-color: ${cores.branca};
     color: ${cores.rosa}
 }
 `
+
+export const formataPreco = (preco = 0) => {
+  return new Intl.NumberFormat('pt-BR', {
+    style: 'currency',
+    currency: 'BRL'
+  }).format(preco)
+}

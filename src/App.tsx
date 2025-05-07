@@ -1,32 +1,29 @@
-import {
-  BrowserRouter,
-  createBrowserRouter,
-  Route,
-  RouterProvider,
-  Routes
-} from 'react-router-dom'
-import Footer from './components/Footer'
+import { Provider } from 'react-redux'
+import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import { GlobalCss } from './styled'
+import store from './store'
+
+import Footer from './components/Footer'
 import Inicial from './components/pages/Inicial/index'
 import Categories from './components/pages/Categories'
-import Produto from './components/Produto'
-import Cardapio from './components/Cardapio'
 
 const Rotas = () => (
   <Routes>
     <Route path="/" element={<Inicial />} />
-    <Route path="/categories" element={<Categories />} />
-    <Route path="/Produto" element={<Cardapio />} />
+    <Route path="/categories/:id" element={<Categories />} />
+    <Route path="/categories/:id" element={<Categories />} />
   </Routes>
 )
 
 function App() {
   return (
-    <BrowserRouter>
-      <GlobalCss />
-      <Rotas />
-      <Footer />
-    </BrowserRouter>
+    <Provider store={store}>
+      <BrowserRouter>
+        <GlobalCss />
+        <Rotas />
+        <Footer />
+      </BrowserRouter>
+    </Provider>
   )
 }
 

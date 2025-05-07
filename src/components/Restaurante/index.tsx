@@ -1,7 +1,7 @@
-import Hioki from '../../assets/images/Hioki Sushi.png'
-import VitaTrattoria from '../../assets/images/Vita Trattoria.png'
-import Nota from '../../assets/images/nota.png'
-import Nota2 from '../../assets/images/nota 2.png'
+import { useNavigate } from 'react-router-dom'
+import { Opçao } from '../../types'
+import Star from '../../assets/images/star.png'
+
 import {
   BtnMore,
   Description,
@@ -11,54 +11,36 @@ import {
   TagNacionalidade,
   Title
 } from './styles'
-import { Link } from 'react-router-dom'
 
-const Restaurante = () => (
-  <>
+export type RestauranteProps = {
+  restaurante: Opçao
+}
+
+const Restaurante = ({ restaurante }: RestauranteProps) => {
+  const navigate = useNavigate()
+
+  return (
     <Item>
       <ImgContainer>
-        <img src={Hioki} alt="HiokiSushi" />
-        <TagDestaque>Destaque da semana</TagDestaque>
-        <TagNacionalidade>Japonesa</TagNacionalidade>
+        <img src={restaurante.capa} alt={restaurante.titulo} />
+        {restaurante.destacado && <TagDestaque>Destaque da semana</TagDestaque>}
+        <TagNacionalidade>{restaurante.tipo}</TagNacionalidade>
       </ImgContainer>
       <Title>
-        <h3>Hioki Sushi</h3>
-        <img src={Nota} alt="NotaPublico" />
+        <h3>{restaurante.titulo}</h3>
+        <div>
+          <strong>{restaurante.avaliacao}</strong>
+          <img src={Star} alt="star" />
+        </div>
       </Title>
       <div>
-        <Description>
-          Peça já o melhor da culinária japonesa no conforto da sua casa! Sushis
-          frescos, sashimis deliciosos e pratos quentes irresistíveis. Entrega
-          rápida, embalagens cuidadosas e qualidade garantida.Experimente o
-          Japão sem sair do lar com nosso delivery!
-        </Description>
-        <BtnMore>
-          <Link to="/categories">Saiba mais </Link>
+        <Description>{restaurante.descricao}</Description>
+        <BtnMore onClick={() => navigate(`/categories/${restaurante.id}`)}>
+          Saiba mais
         </BtnMore>
       </div>
     </Item>
-    <Item>
-      <ImgContainer>
-        <img src={VitaTrattoria} alt="Vita Trattoria" />
-        <TagNacionalidade>Italiana</TagNacionalidade>
-      </ImgContainer>
-      <Title>
-        <h3>Vita Trattoria</h3>
-        <img src={Nota2} alt="NotaPublico" />
-      </Title>
-      <div>
-        <Description>
-          A La Dolce Vita Trattoria leva a autêntica cozinha italiana até você!
-          Desfrute de massas caseiras, pizzas deliciosas e risotos incríveis,
-          tudo no conforto do seu lar. Entrega rápida, pratos bem embalados e
-          sabor inesquecível. Peça já!
-        </Description>
-        <BtnMore>
-          <Link to="/categories">Saiba mais </Link>
-        </BtnMore>
-      </div>
-    </Item>
-  </>
-)
+  )
+}
 
 export default Restaurante

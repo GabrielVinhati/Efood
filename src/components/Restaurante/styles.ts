@@ -2,10 +2,16 @@ import styled from 'styled-components'
 import { cores } from '../../styled'
 
 export const Item = styled.li`
-  width: 472px;
+  max-width: 472px;
   border: 1px ${cores.rosa} solid;
   list-style: none;
   margin-bottom: 48px;
+
+  img {
+    width: 100%;
+    height: 217px;
+    object-fit: cover;
+  }
 `
 
 export const Title = styled.div`
@@ -16,9 +22,15 @@ export const Title = styled.div`
   font-size: 18px;
   color: ${cores.rosa};
 
+  div {
+    display: flex;
+    align-items: center;
+  }
+
   img {
-    width: 55px;
-    height: 21px;
+    margin-left: 8px;
+    width: 21px;
+    height: 20px;
   }
 `
 
@@ -59,15 +71,12 @@ export const Description = styled.p`
 `
 
 export const BtnMore = styled.button`
-  margin: 8px;
-  padding: 5px;
+  margin: 10px;
+  width: 82px;
+  height: 24px;
   background-color: ${cores.rosa};
   color: ${cores.branca};
   font-size: 14px;
+  cursor: pointer;
   border: none;
-
-  a {
-    color: inherit;
-    text-decoration: none;
-  }
 `

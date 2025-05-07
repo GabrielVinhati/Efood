@@ -25,7 +25,7 @@ export const Modal = styled.div`
   left: 0;
   width: 100%;
   height: 100%;
-  z-index: 1;
+  z-index: 2;
 
   &.visible {
     display: flex;
@@ -53,10 +53,13 @@ export const ModalContent = styled.div`
   color: ${cores.branca};
   background-color: ${cores.rosa};
   border-radius: 5px;
-  z-index: 1;
+  z-index: 2;
 
   img {
     border-radius: 5px;
+    width: 280px;
+    height: 280px;
+    object-fit: cover;
   }
 `
 

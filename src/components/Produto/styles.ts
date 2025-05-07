@@ -4,12 +4,14 @@ import { cores } from '../../styled'
 export const Item = styled.div`
   padding: 8px;
   width: 320px;
-  height: 338px;
+  height: 400px;
   background-color: ${cores.rosa};
   margin: 20px 0;
   border-radius: 5px;
 
   img {
+    width: 304px;
+    height: 167px;
     border-radius: 5px;
   }
 `
@@ -20,10 +22,10 @@ export const Title = styled.p`
   color: ${cores.branca};
 `
 
-export const Description = styled.p`
+export const Description = styled.div`
   padding: 8px 0;
   font-size: 14px;
-  line-height: 19px;
+  line-height: 22px;
   color: ${cores.branca};
 `
 export const Specification = styled.button`
@@ -32,7 +34,9 @@ export const Specification = styled.button`
   height: 24px;
   font-size: 14px;
   font-weight: bold;
+  background-color: ${cores.offWhite};
   color: ${cores.rosa};
   border: none;
   border-radius: 5px;
+  cursor: pointer;
 `

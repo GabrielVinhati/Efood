@@ -1,34 +1,31 @@
 import { Dispatch, SetStateAction } from 'react'
-import Pizza from '../../assets/images/PizzaMarguerita.png'
 import { Specification, Description, Item, Title } from './styles'
-import { Link } from 'react-router-dom'
+import { CardapioItem } from '../../types'
 
-type ProdutoProps = {
+export type ProdutoProps = {
   SetModalVisible: Dispatch<SetStateAction<boolean>>
+  cardapio: CardapioItem
 }
 
-const Produto = ({ SetModalVisible }: ProdutoProps) => {
+const Produto = ({ SetModalVisible, cardapio }: ProdutoProps) => {
+  const limitText = (text: string, maxlength: number) => {
+    return text.length > maxlength ? `${text.substring(0, maxlength)}...` : text
+  }
+
   return (
     <Item>
-      <img src={Pizza} alt="Pizza Marguerita" />
-      <div>
-        <Title>Pizza Marguerita</Title>
-        <Description>
-          A clássica Marguerita: molho de tomate suculento, mussarela derretida,
-          manjericão fresco e um toque de azeite. Sabor e simplicidade!
-        </Description>
-        <Specification>
-          <Link
-            to={''}
-            onClick={(e) => {
-              e.preventDefault()
-              SetModalVisible(true)
-            }}
-          >
-            Especificação do produto
-          </Link>
-        </Specification>
-      </div>
+      {cardapio && (
+        <>
+          <img src={cardapio.foto} alt={cardapio.nome} />
+          <div>
+            <Title>{cardapio.nome}</Title>
+            <Description>{limitText(cardapio.descricao, 250)}</Description>
+            <Specification onClick={() => SetModalVisible(true)}>
+              Especificação do produto
+            </Specification>
+          </div>
+        </>
+      )}
     </Item>
   )
 }
