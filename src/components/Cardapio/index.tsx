@@ -12,7 +12,7 @@ import { useState, useEffect } from 'react'
 import { CardapioItem } from '../../types'
 import Cart from '../Cart'
 import { useDispatch } from 'react-redux'
-import { add } from '../../store/reducers/cart'
+import { add, open } from '../../store/reducers/cart'
 import { formataPreco } from '../../styled'
 
 const Cardapio = () => {
@@ -48,6 +48,8 @@ const Cardapio = () => {
   const addToCart = () => {
     if (selectedItem) {
       dispatch(add(selectedItem))
+      dispatch(open())
+      setModalVisible(false)
     }
   }
 

@@ -34,6 +34,13 @@ export const Sidebar = styled.aside`
   width: 360px;
   padding: 32px 8px 0 8px;
   z-index: 1;
+
+  .empty-message {
+    font-size: 24px;
+    font-weight: bold;
+    line-height: 22px;
+    text-align: center;
+  }
 `
 
 export const Price = styled.div`
